@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://unpkg.com/jsbarcode@latest/dist/JsBarcode.all.min.js"></script>
+
+    <title>Barcode ISBN</title>
+  </head>
+  <body>
+    <!-- INICIO DA API -->
+
+    <!-- <script src="https://unpkg.com/jsbarcode@latest/dist/JsBarcode.all.min.js"></script> -->
+
+    <div class="contentor_isbn_comando">
+      <input type="text" name="isbn_input" id="isbn_input" maxlength="13" />
+
+      <label for="n_isbn"
+        >Digite o código de ISBN <br /><br />
+        (Somente Números)</label
+      >
+      <br /><br />
+      <button id="btn_generate" class="botao">
+        GERAR <br />CÓDIGO DE BARRAS
+      </button>
+      <br /><br />
+      <a class="voltar_isbn" href="/index.html">
+        <button type="reset" id="voltar_isbn" class="botao">VOLTAR</button>
+      </a>
+
+      <br /><br />
+    </div>
+
+    <div class="contentor_isbn_gerado">
+      <img id="barcode" />
+    </div>
+
+    <script type="text/javascript">
+      document
+        .getElementById("btn_generate")
+        .addEventListener("click", function () {
+          var text = document.getElementById("isbn_input").value;
+
+          JsBarcode("#barcode", text, {
+            height: 200,
+            width: 5,
+            format: "EAN13",
+            flat: false,
+            fontSize: 40,
+          });
+        });
+    </script>
+
+    <!-- FIM DA API  -->
+  </body>
+</html>
